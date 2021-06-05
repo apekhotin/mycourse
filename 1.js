@@ -1,9 +1,16 @@
-function sum(x) {
-    let a = 0;
+function sum(a) {
+    let acc = 0;
 
-    return function() {
+    let tmp = function(b) {
+        if (b) {
+            acc += b;
+            return tmp;
+        }
 
+        return acc;
     }
+
+    return tmp(a);
 }
 
-console.log(sum(1)(2)(3)());
+console.log(sum(100)(250)(3)());
